@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{ task.id ? "Modifier" : "Ajouter" }}</h5>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="row mb-3">
+        <label for="name" class="col-sm-2 col-form-label">Nom</label>
+        <div class="col-sm-10">
+          <input
+            type="text"
+            class="form-control is-invalid"
+            [ngClass]="{
+              'is-invalid': submitted && form.controls.name.errors
+            }"
+            id="name"
+            formControlName="name"
+          />
+          <div
+            id="validationServer03Feedback"
+            class="invalid-feedback"
+            *ngIf="submitted && form.controls.name.errors"
+          >
+            Ce champ est obligatoire.
+          </div>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="actif" class="col-sm-2 col-form-label">Active</label>
+        <div class="col-sm-10 form-check">
+          <input
+            type="checkbox"
+            class="mt-3"
+            id="actif"
+            formControlName="actif"
+          />
+        </div>
+      </div>
+      <div class="col-12 d-flex justify-content-end px-0">
+        <button type="reset" class="btn btn-light mr-2" (click)="cancel()">
+          Annuler
+        </button>
+        <button class="btn btn-primary" type="submit">Enregistrer</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="card w-100">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-10">
+        <h5 class="card-title">{{ task.name }}</h5>
+      </div>
+      <div class="col-md-2 d-flex align-items-center">
+        {{ task.actif ? "Actif" : "Inactif"
+        }}<span
+          class="task-status"
+          [ngClass]="{
+            actif: task.actif
+          }"
+        ></span>
+      </div>
+    </div>
+    <div class="row d-flex justify-content-between align-items-center">
+      <div class="col-md-4">
+        <button
+          class="btn btn-primary"
+          data-bs-toggle="tooltip"
+          title="Modifier"
+          (click)="edit($event)"
+        >
+          <fa-icon [icon]="faEdit"></fa-icon>
+        </button>
+        <button
+          class="btn btn-danger ml-2"
+          data-bs-toggle="tooltip"
+          title="Supprimer"
+          (click)="delete($event)"
+        >
+          <fa-icon [icon]="faTrash"></fa-icon>
+        </button>
+      </div>
+      <div class="col-md-4">
+        <i>Créer le : {{ task.date | date: "dd/MM/yyy hh:mm" }}</i>
+      </div>
+    </div>
+  </div>
+</div>

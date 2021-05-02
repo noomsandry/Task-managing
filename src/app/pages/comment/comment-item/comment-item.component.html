@@ -1,0 +1,15 @@
+<div class="card">
+  <div class="card-body">
+    <div class="d-flex">
+      <img [src]="comment.owner.picture" />
+      <div>
+        <h5>{{ comment.owner.firstName }} {{ comment.owner.lastName }}</h5>
+        <p>{{ comment.publishDate | date: "dd MMM yyyy hh:mm:ss" }}</p>
+      </div>
+    </div>
+    <hr />
+    <div>
+      {{ comment.message }}
+    </div>
+  </div>
+</div>

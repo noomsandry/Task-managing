@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-body">
+    <app-task-item
+      *ngFor="let task of tasks"
+      [task]="task"
+      (click)="onClickTask(task)"
+      (onEditItem)="onEditItem($event)"
+      (onDeleteItem)="onDeleteItem($event)"
+    ></app-task-item>
+    <p *ngIf="tasks.length === 0">(liste vide )</p>
+  </div>
+</div>
